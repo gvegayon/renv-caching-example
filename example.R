@@ -1,0 +1,3 @@
+library(slurmR)
+
+renv::init()
