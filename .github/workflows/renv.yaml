@@ -51,6 +51,12 @@ jobs:
                 restore-keys: |
                   ${{ runner.os }}-renv-
 
+            - name: Debugging cache
+              run: |
+                  echo "Cache key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}"
+                  ls -la ${{ env.RENV_PATHS_ROOT }}
+              shell: bash
+
             - run: |
                 library(slurmR)
                 whoami()
